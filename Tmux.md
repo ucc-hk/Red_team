@@ -1,5 +1,5 @@
 New session
-tmux new-session -s work
+tmux new-session -s HTB
 
 Show session
 tmux ls 
@@ -30,5 +30,6 @@ Need skill of timing:
 
 Show time
 ^b t
+
 Show pane numbers
 ^b q
