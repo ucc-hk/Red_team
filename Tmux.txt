@@ -18,6 +18,9 @@ Panes (splits)
 "  horizontal split
 o  swap panes
 
+Enable mouse mode
+set -g mouse on
+
 <> left right ^ up ...
  
 Toggle last active pane
