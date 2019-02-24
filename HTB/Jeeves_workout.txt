@@ -23,3 +23,6 @@ Apache check connections:
 
 Power UP tools:
 https://github.com/PowerShellMafia/PowerSploit
+
+indirect show content
+(get-content user.txt).substring(0,16)
