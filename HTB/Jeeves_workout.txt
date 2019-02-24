@@ -21,4 +21,5 @@ println cmd.execute().text
 Apache check connections:
 /var/log/apache2# 
 
-
+Power UP tools:
+https://github.com/PowerShellMafia/PowerSploit
