@@ -1,0 +1,7 @@
+python -m SimpleHTTPServer 80
+
+Show process:
+ps -ef 
+kill -9 <PID>
+
+
