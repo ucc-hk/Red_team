@@ -7,6 +7,7 @@ tmux ls
 Back to Tmux
 tmux a
 
+tmux rename-session [new-name]
 Kill session
 tmux kill-session -t myname
 
