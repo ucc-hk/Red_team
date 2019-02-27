@@ -30,6 +30,10 @@ Toggle last active pane
 Exit pane
 ^b d
 
+Save the buffer to a file:
+^b :  capture-pane -S -3000 + enter
+^b :  save-buffer filename.txt + enter
+
 Need skill of timing: 
 
 Show time
