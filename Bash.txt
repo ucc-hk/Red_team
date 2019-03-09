@@ -1,0 +1,4 @@
+
+For run firefox command line and without keep terminal
+/usr/bin/firefox hk.yahoo.com &
+
