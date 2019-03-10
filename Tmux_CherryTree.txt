@@ -41,3 +41,8 @@ Show time
 
 Show pane numbers
 ^b q
+
+CherryTree: 
+New Node: Ctrl N , Child Node: Ctrl Shift N 
+Print Screen: Ctrl Shift Print screen
+
