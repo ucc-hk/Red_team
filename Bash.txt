@@ -1,3 +1,7 @@
+Get a bash:
+
+python -c 'import pty;pty.spawn("/bin/bash")'
+
 
 For run firefox command line and without keep terminal
 /usr/bin/firefox hk.yahoo.com &
