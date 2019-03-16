@@ -4,6 +4,10 @@ python -c 'import pty;pty.spawn("/bin/bash")'
 
 sudo -u scriptmanager bash
 
+Check your terminal
+echo $TERM --> xterm-256color
+Resolve vi issue:
+export TERM=xterm-256color
 
 
 
