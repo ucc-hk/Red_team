@@ -1,3 +1,8 @@
+Reverse Shell details
+http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
+
+
 Get a bash:
 
 python -c 'import pty;pty.spawn("/bin/bash")'
