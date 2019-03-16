@@ -1,0 +1,2 @@
+# Nmap 7.70SVN scan initiated Sun Feb 24 12:52:55 2019 as: nmap -sC -sV -oA 10.10.10.63 -oN Scanning.txt
+# Nmap done at Sun Feb 24 12:52:56 2019 -- 0 IP addresses (0 hosts up) scanned in 0.30 seconds

