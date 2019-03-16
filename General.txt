@@ -2,9 +2,8 @@ Reverse Shell details
 http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 
 
+dpkg -i atom-amd64.deb
 
-Get a bash:
+sudo apt-get -f install
 
-python -c 'import pty;pty.spawn("/bin/bash")'
-
-
+PlatformIO IDE Terminal
