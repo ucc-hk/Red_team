@@ -9,6 +9,9 @@ echo $TERM --> xterm-256color
 Resolve vi issue:
 export TERM=xterm-256color
 
+Direct transfer to clipboard
+cat /usr/share/exploitdb/exploits/linux/local/14339.sh|xclip
+
 
 
 For run firefox command line and without keep terminal
