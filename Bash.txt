@@ -4,10 +4,12 @@ python -c 'import pty;pty.spawn("/bin/bash")'
 
 sudo -u scriptmanager bash
 
-Check your terminal
-echo $TERM --> xterm-256color
-Resolve vi issue:
-export TERM=xterm-256color
+
+Getting use info:
+
+find /home -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t
+
+
 
 Direct transfer to clipboard
 cat /usr/share/exploitdb/exploits/linux/local/14339.sh|xclip
