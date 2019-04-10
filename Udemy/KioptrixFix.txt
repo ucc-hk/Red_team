@@ -1,0 +1,7 @@
+Change at Kioptrix:
+ethernet0.networkName = "hostonly"
+ethernet0.addressType = "generated"
+ethernet0.connectionType = "bridged"
+Then find out the hostonly address:
+netdiscover -i eth0
+
