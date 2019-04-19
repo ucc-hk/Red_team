@@ -1,4 +1,5 @@
 root@kali-2017:~# service mysql start
+
 root@kali-2017:~# mysql -u root -p
 MariaDB [(none)]> use mysql;
 
