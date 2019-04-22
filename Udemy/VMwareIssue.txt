@@ -1,0 +1,16 @@
+Change at Kioptrix:
+ethernet0.networkName = "hostonly"
+ethernet0.addressType = "generated"
+ethernet0.connectionType = "bridged"
+Then find out the hostonly address:
+netdiscover -i eth0
+
+
+OVF to VMX
+c:\VMImages>ovftool -tt=vmx pwnlab_init.ova pwnlab_init
+Opening OVA source: pwnlab_init.ova
+The manifest validates
+Opening VMX target: pwnlab_init
+Writing VMX file: pwnlab_init\pwnlab_ init\pwnlab_ init.vmx
+Transfer Completed
+Completed successfully
