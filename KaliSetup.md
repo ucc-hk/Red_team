@@ -1,7 +1,7 @@
-# Burp    
-# update-alternatives –config java   
+### Burp    
+### update-alternatives –config java   
 
-##  Atom install    
+####  Atom install    
 dpkg -i atom-amd64.deb    
 sudo apt-get -f install   
 PlatformIO IDE Terminal   
