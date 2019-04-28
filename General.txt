@@ -1,9 +1,0 @@
-Reverse Shell details
-http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
-
-
-dpkg -i atom-amd64.deb
-
-sudo apt-get -f install
-
-PlatformIO IDE Terminal
