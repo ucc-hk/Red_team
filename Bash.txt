@@ -26,3 +26,6 @@ Custom commands for linux terminal
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+
+search NSE
+locate -r '\.nse$' | grep 'smb\|ssl'
