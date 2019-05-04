@@ -33,6 +33,8 @@ nikto -host 192.168.139.131
 
 ##### LotusCMS-Exploit
 
+https://github.com/Hood3dRob1n/LotusCMS-Exploit/blob/master/lotusRCE.sh
+
 	$GLOBALS["gallarific_mysql_username"] = "root";
 	$GLOBALS["gallarific_mysql_password"] = "fuckeyou";
 
