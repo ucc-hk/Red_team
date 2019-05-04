@@ -48,7 +48,7 @@ loneferret@Kioptrix3:~$ export TERM=xterm
 Update: /etc/sudoers   
 Then sudo su  
 
-Other method:  
+##### OR:  
 add hostname,   
 
 http://kioptrix3.com/gallery/  
