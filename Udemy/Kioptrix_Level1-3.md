@@ -41,7 +41,7 @@ https://github.com/Hood3dRob1n/LotusCMS-Exploit/blob/master/lotusRCE.sh
 	dreg 		0d3eccfb887aabd50f243b3f155c0f85 Mast3r
 	loneferret 	5badcaf789d3d1d09794d8f021f40f0e starwars
 
-root@kali:~# cd /usr/share/wordlists/
+root@kali:~# cd /usr/share/wordlists/  
 root@kali:/usr/share/wordlists# gunzip rockyou.txt.gz 
 
 loneferret@Kioptrix3:~$ export TERM=xterm   
