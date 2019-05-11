@@ -9,7 +9,8 @@ Getting use info:
 
 find /home -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t
 
-
+Cut passwd to users.txt:
+cat passwd | grep 'bin/bash' | cut -d: -f1
 
 Direct transfer to clipboard
 cat /usr/share/exploitdb/exploits/linux/local/14339.sh|xclip
