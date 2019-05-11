@@ -3,6 +3,9 @@ User-agent: *
 Disallow: /admin112233/
 Disallow: /blogblog/
 
+Cut passwd to users.txt:
+cat passwd | grep 'bin/bash' | cut -d: -f1
+
 Provided:
 wpscan --url https://192.168.139.144:12380/blogblog -e u[1-100] -e ap -e at
 
