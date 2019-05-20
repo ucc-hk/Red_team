@@ -22,12 +22,14 @@ For run firefox command line and without keep terminal
 /usr/bin/firefox hk.yahoo.com &
 
 Custom commands for linux terminal
- $ nano .bashrc 
+
+```shell
+$ nano .bashrc 
 
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-
+```
 search NSE
 locate -r '\.nse$' | grep 'smb\|ssl'
