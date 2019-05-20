@@ -1,9 +1,10 @@
 Get a bash:
-
+```shell
 python -c 'import pty;pty.spawn("/bin/bash")'
 
 sudo -u scriptmanager bash
 
+```
 
 Getting use info:
 
