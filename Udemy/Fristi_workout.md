@@ -1,7 +1,7 @@
-By dirb and decode:  		
-eezeepz  			
-keKkeKKeKKeKkEkkEk  		
-then upload:  		
+By dirb and decode:   
+eezeepz   
+keKkeKKeKKeKkEkkEk   
+then upload:   
 http://192.168.139.145/fristi/uploads/revshell.php.jpg  			
 
 ```shell
