@@ -17,7 +17,7 @@ cat /usr/share/exploitdb/exploits/linux/local/14339.sh|xclip
 ```
 
 
-For run firefox command line and without keep terminal
+For run firefox command line and without keep terminal    
 /usr/bin/firefox hk.yahoo.com &
 
 Custom commands for linux terminal
