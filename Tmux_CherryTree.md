@@ -1,12 +1,17 @@
 New session
+```shell
 tmux new-session -s HTB
-
+```
 Show session
+```shell
 tmux ls 
+```
 
 Back to Tmux
+```shell
 tmux a
-
+```
+```shell
 tmux rename-session [new-name]
 Kill session
 tmux kill-session -t myname
@@ -45,5 +50,5 @@ Show pane numbers
 CherryTree: 
 New Node: Ctrl N , Child Node: Ctrl Shift N 
 Print Screen: Ctrl Shift Print screen
-
+```
 
