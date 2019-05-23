@@ -42,11 +42,12 @@ Kail:
 git clone https://github.com/saghul/lxd-alpine-builder.git
 ./build-alpine -a i686
 ```
-SCP via SSH:
+#### SCP via SSH:
+```shell
 scp alpine-v3.9-i386-20190523_1714.tar.gz  xalvas@10.10.10.27:/tmp/
-18547936..*
-
-Calamity:
+Password: 18547936..*
+```
+**Calamity:
 ```shell
 xalvas@calamity:/tmp$ lxc image import alpine-v3.9-i386-20190523_1714.tar.gz --alias alpine
 Image imported with fingerprint: 8e6c7cb2b5f1d8c52d8a4912c485984414a2e6954ce46c7f08b6a4e99caae6aa
