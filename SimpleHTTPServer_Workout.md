@@ -1,7 +1,7 @@
 ```shell
 python -m SimpleHTTPServer 80
 
-Show process:
+Show process for stop services:
 ps -ef 
 kill -9 <PID>
 ```
