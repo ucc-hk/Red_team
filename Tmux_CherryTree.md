@@ -11,12 +11,14 @@ Back to Tmux
 ```shell
 tmux a
 ```
+
 ```shell
+Rename session:
 tmux rename-session [new-name]
-Kill session
+Kill session:
 tmux kill-session -t myname
 
-Break Freeze
+Break Freeze:
 ctrl-q
 
 Panes (splits)
