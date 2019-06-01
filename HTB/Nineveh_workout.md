@@ -68,8 +68,7 @@ www-data@nineveh:/report$ IFS=$'\n'
 ```shell
 --------------------------------------------------------------------
 #!/bin/bash
-
-# Loop by line
+# Loop process line by line
 IFS=$'\n'
 
 old_process=$(ps -eo command)
@@ -119,8 +118,8 @@ root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# cat nineveh.priv
 -----BEGIN RSA PRIVATE KEY-----
 ...
 ```
-****root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# chmod 600 nineveh.priv 
-BUT No SSH^-^****
+##### root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# chmod 600 nineveh.priv 
+##### BUT No SSH^-^
 ```shell
 www-data@nineveh:/etc/init.d$ netstat -alnp | grep LIST
 netstat -alnp | grep LIST
