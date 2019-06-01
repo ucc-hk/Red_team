@@ -111,14 +111,17 @@ Show hidden content:
 root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
 ...
 As a result:
+```shell
 Public key:
 root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# cat nineveh.pub 
 Private Key:
 root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# cat nineveh.priv 
 -----BEGIN RSA PRIVATE KEY-----
 ...
-root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# chmod 600 nineveh.priv 
-BUT No SSH^-^
+```
+****root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# chmod 600 nineveh.priv 
+BUT No SSH^-^****
+```shell
 www-data@nineveh:/etc/init.d$ netstat -alnp | grep LIST
 netstat -alnp | grep LIST
 (Not all processes could be identified, non-owned process info
@@ -127,8 +130,8 @@ tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -               
 tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      -               
 tcp6       0      0 :::22                   :::*                    LISTEN      -               
-
-This is port knocking services~~
+```
+#### This is port knocking services~~
 www-data@nineveh:/etc/init.d$ cat /etc/knockd.conf
 ....
 [openSSH]
@@ -137,7 +140,8 @@ www-data@nineveh:/etc/init.d$ cat /etc/knockd.conf
 Below all wrong:
 for i in 571 290 911; do nmap -Pn -p $i --host_timeout 201 --max-retries 0 10.10.10.43; done
 for x in 571 290 911; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x 10.10.10.43; done
-Real:
+#### Real:
+```shell
 root@kali:~/HTB/Nineveh# for i in 571 290 911; do nmap -Pn -p $i --max-retries 0 10.10.10.43; done
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-01 00:20 HKT
 Warning: 10.10.10.43 giving up on port because retransmission cap hit (0).
@@ -174,7 +178,6 @@ Host is up (0.22s latency).
 
 PORT   STATE SERVICE
 22/tcp open  ssh
-Finally readly to connect:
-
-root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43
 ```
+#### Finally readly to connect:
+**** root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43
