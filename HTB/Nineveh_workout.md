@@ -182,4 +182,4 @@ PORT   STATE SERVICE
 22/tcp open  ssh
 ```
 ##### Finally readly to connect:
-##### root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43
+****root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43****
