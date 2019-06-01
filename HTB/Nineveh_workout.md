@@ -132,6 +132,7 @@ tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      -               
 ```
 #### This is port knocking services~~
+```shell
 www-data@nineveh:/etc/init.d$ cat /etc/knockd.conf
 ....
 [openSSH]
@@ -140,9 +141,11 @@ www-data@nineveh:/etc/init.d$ cat /etc/knockd.conf
 Below all wrong:
 for i in 571 290 911; do nmap -Pn -p $i --host_timeout 201 --max-retries 0 10.10.10.43; done
 for x in 571 290 911; do nmap -Pn --host_timeout 201 --max-retries 0 -p $x 10.10.10.43; done
+```
 #### Real:
 ```shell
 root@kali:~/HTB/Nineveh# for i in 571 290 911; do nmap -Pn -p $i --max-retries 0 10.10.10.43; done
+
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-01 00:20 HKT
 Warning: 10.10.10.43 giving up on port because retransmission cap hit (0).
 Nmap scan report for 10.10.10.43
