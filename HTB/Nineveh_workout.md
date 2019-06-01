@@ -181,5 +181,5 @@ Host is up (0.22s latency).
 PORT   STATE SERVICE
 22/tcp open  ssh
 ```
-#### Finally readly to connect:
-****root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43****
+##### Finally readly to connect:
+##### root@kali:~/HTB/Nineveh/_nineveh.png.extracted/secret# ssh -i nineveh.priv amrois@10.10.10.43
