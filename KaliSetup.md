@@ -8,6 +8,10 @@ sudo apt-get -f install
 PlatformIO IDE Terminal   
 
 ```
+#####  Chrome setup
+
+Chrome default available after 2019.4
+For chrome run as root add: --no-sandbox -test-type
 
 ### ENV
 ## navigation
