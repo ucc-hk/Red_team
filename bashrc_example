@@ -1,0 +1,11 @@
+## navigation
+alias goshare='cd /mnt/hgfs/VMShare/'
+alias godesktop='cd /root/Desktop/'
+#alias gopwk="cd /mnt/hgfs/VMShare/pwk/"
+alias openpwk="evince ~/PWK/pwk2020.pdf"
+
+## rdp to the offsec windows vm
+alias win10vm='sudo rdesktop -u IEUser -p Passw0rd! -r disk:share=/root/PWK 192.168.64.137 -g 1800x1020'
+alias win7vm='sudo rdesktop -u IEUser -p Passw0rd! -r disk:share=/root/PWK 192.168.64.136 -g 1800x1020'
+alias htbconnect='sudo openvpn /root/HTB/lab-connection/0xBeWater.ovpn'
+alias vmtools='/root/Desktop/mount-shared-folders'
